@@ -13,15 +13,37 @@ Na primeira base de dados, a relacional, ficam armazenados os dados dos clientes
 Os documentos devem ter o seguinte formato:
 
 * Coleção Produtos:
-{idprod: 1000, produto: “descrição do produto”, quantidade: 1000, preco: 989}
+{
+    idprod: 1000, 
+    produto: “descrição do produto”, 
+    quantidade: 1000, 
+    preco: 989
+}
 
 * Coleção Cliente:
-dados: {idcliente: 9, cpf: 123456789, nome: “Maria Dias”,
-email:”mariadias@gmail.com”,
-endereco: {rua: “Av das Nações”, numero: 345, 
-complemento:“dados do complemento”, cidade: “São Paulo”, uf: “SP”, cep: “011111-110”},
-compras: {idcompra:1009, idprod: 1000, data:”2024-10-19”,
-quantidade: 1, valorpago: 1002,45}}
+dados: 
+{
+    idcliente: 9, 
+    cpf: 123456789, 
+    nome: “Maria Dias”,
+    email:”mariadias@gmail.com”,
+    endereco: {
+        rua: “Av das Nações”, 
+        numero: 345, 
+        complemento:“dados do complemento”, 
+        cidade: “São Paulo”, 
+        uf: “SP”, 
+        cep: “011111-110”
+        },
+    compras: 
+    {
+        idcompra:1009, 
+        idprod: 1000, 
+        data:”2024-10-19”,
+        quantidade: 1, 
+        valorpago: 1002,45
+    }
+}
 
 ## BASE 2: Orientado a grafos (Neo4J)
 O banco de dados orientado a grafos deve armazenar dados dos clientes
