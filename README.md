@@ -7,7 +7,7 @@ um amigo. Os dados dos clientes e seus amigos são armazenados em
 uma base de dados orientada a documentos.
 
 
-## BASE 1: Orientado a documentos
+## BASE 1: Orientado a documentos (MongoDB)
 
 Na primeira base de dados, a relacional, ficam armazenados os dados dos clientes e das suas compras.
 Os documentos devem ter o seguinte formato:
@@ -23,7 +23,7 @@ complemento:“dados do complemento”, cidade: “São Paulo”, uf: “SP”, 
 compras: {idcompra:1009, idprod: 1000, data:”2024-10-19”,
 quantidade: 1, valorpago: 1002,45}}
 
-## BASE 2: Orientado a grafos
+## BASE 2: Orientado a grafos (Neo4J)
 O banco de dados orientado a grafos deve armazenar dados dos clientes
 e de seus amigos, indicando a relação de amizade entre eles.
 
