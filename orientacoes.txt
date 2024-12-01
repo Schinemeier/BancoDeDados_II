@@ -1,0 +1,5 @@
+pip install pymongo
+
+pip install neo4j
+
+bibliotecas para usar com python

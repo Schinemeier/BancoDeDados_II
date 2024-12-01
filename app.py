@@ -12,7 +12,7 @@ produtos_col = mongo_db['produtos']
 clientes_col = mongo_db['clientes']
 
 # Conexão com Neo4j (Base 2: Orientado a Grafos)
-neo4j_driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "password"))
+neo4j_driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "neo4j"))
 
 # Função para recuperar dados de amigos de um cliente no Neo4j
 def get_amigos(cpf):

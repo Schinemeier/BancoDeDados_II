@@ -1,0 +1,849 @@
+use ecommerceDB; // Mude o nome do banco conforme necessário.
+
+db.createCollection("produtos");
+db.createCollection("clientes");
+
+// POPULAÇÃO DO BANCO
+///////////// INSERIR PRODUTOS
+db.produtos.insertOne({
+  idprod: 1000,
+  produto: "Notebook Dell Inspiron",
+  quantidade: 50,
+  preco: 4500.00
+});
+db.produtos.insertOne({
+  idprod: 1001,
+  produto: "Smartphone Samsung Galaxy",
+  quantidade: 100,
+  preco: 2500.00
+});
+db.produtos.insertOne({
+  idprod: 1001,
+  produto: "Smartphone Samsung Galaxy",
+  quantidade: 30,
+  preco: 2500.00
+});
+db.produtos.insertOne({
+  idprod: 1002,
+  produto: "Tablet Apple iPad",
+  quantidade: 20,
+  preco: 3500.00
+});
+db.produtos.insertOne({
+  idprod: 1003,
+  produto: "Monitor LG Ultrawide",
+  quantidade: 40,
+  preco: 1200.00
+});
+db.produtos.insertOne({
+  idprod: 1004,
+  produto: "Impressora HP LaserJet",
+  quantidade: 25,
+  preco: 800.00
+});
+db.produtos.insertOne({
+  idprod: 1005,
+  produto: "Teclado Mecânico Corsair",
+  quantidade: 50,
+  preco: 600.00
+});
+db.produtos.insertOne({
+  idprod: 1006,
+  produto: "Mouse Logitech MX Master",
+  quantidade: 60,
+  preco: 450.00
+});
+db.produtos.insertOne({
+  idprod: 1007,
+  produto: "Fone de Ouvido Sony WH-1000XM4",
+  quantidade: 35,
+  preco: 1200.00
+});
+db.produtos.insertOne({
+  idprod: 1008,
+  produto: "TV Samsung 4K",
+  quantidade: 15,
+  preco: 3800.00
+});
+db.produtos.insertOne({
+  idprod: 1009,
+  produto: "Console Sony PlayStation 5",
+  quantidade: 10,
+  preco: 4500.00
+});
+db.produtos.insertOne({
+  idprod: 1010,
+  produto: "Roteador TP-Link Archer",
+  quantidade: 45,
+  preco: 350.00
+});
+db.produtos.insertOne({
+  idprod: 1011,
+  produto: "Câmera Canon EOS Rebel",
+  quantidade: 20,
+  preco: 3000.00
+});
+db.produtos.insertOne({
+  idprod: 1012,
+  produto: "SSD Kingston 1TB",
+  quantidade: 70,
+  preco: 550.00
+});
+db.produtos.insertOne({
+  idprod: 1013,
+  produto: "Smartwatch Apple Watch",
+  quantidade: 25,
+  preco: 2300.00
+});
+db.produtos.insertOne({
+  idprod: 1014,
+  produto: "Notebook Lenovo ThinkPad",
+  quantidade: 30,
+  preco: 4200.00
+});
+db.produtos.insertOne({
+  idprod: 1015,
+  produto: "Microfone Blue Yeti",
+  quantidade: 50,
+  preco: 700.00
+});
+db.produtos.insertOne({
+  idprod: 1016,
+  produto: "Cadeira Gamer DXRacer",
+  quantidade: 20,
+  preco: 1500.00
+});
+db.produtos.insertOne({
+  idprod: 1017,
+  produto: "HD Externo Seagate 2TB",
+  quantidade: 40,
+  preco: 480.00
+});
+db.produtos.insertOne({
+  idprod: 1018,
+  produto: "Placa de Vídeo Nvidia RTX 3080",
+  quantidade: 15,
+  preco: 6500.00
+});
+db.produtos.insertOne({
+  idprod: 1019,
+  produto: "Controle Xbox Series X",
+  quantidade: 30,
+  preco: 350.00
+});
+db.produtos.insertOne({
+  idprod: 1020,
+  produto: "Projetor Epson PowerLite",
+  quantidade: 10,
+  preco: 3000.00
+});
+db.produtos.insertOne({
+  idprod: 1021,
+  produto: "Ventilador de Mesa Arno",
+  quantidade: 60,
+  preco: 150.00
+});
+db.produtos.insertOne({
+  idprod: 1022,
+  produto: "Luminária de Mesa LED",
+  quantidade: 50,
+  preco: 80.00
+});
+db.produtos.insertOne({
+  idprod: 1023,
+  produto: "Cafeteira Nespresso",
+  quantidade: 35,
+  preco: 700.00
+});
+db.produtos.insertOne({
+  idprod: 1024,
+  produto: "Liquidificador Philips",
+  quantidade: 45,
+  preco: 200.00
+});
+db.produtos.insertOne({
+  idprod: 1025,
+  produto: "Frigobar Consul",
+  quantidade: 20,
+  preco: 1100.00
+});
+db.produtos.insertOne({
+  idprod: 1026,
+  produto: "Máquina de Lavar LG",
+  quantidade: 10,
+  preco: 2400.00
+});
+db.produtos.insertOne({
+  idprod: 1027,
+  produto: "Ar Condicionado Split Samsung",
+  quantidade: 15,
+  preco: 3000.00
+});
+db.produtos.insertOne({
+  idprod: 1028,
+  produto: "Lava-Louças Brastemp",
+  quantidade: 12,
+  preco: 3500.00
+});
+db.produtos.insertOne({
+  idprod: 1029,
+  produto: "Geladeira Electrolux",
+  quantidade: 8,
+  preco: 4500.00
+});
+db.produtos.insertOne({
+  idprod: 1030,
+  produto: "Fogão 4 Bocas Consul",
+  quantidade: 18,
+  preco: 1000.00
+});
+db.produtos.insertOne({
+  idprod: 1031,
+  produto: "Purificador de Água Europa",
+  quantidade: 25,
+  preco: 300.00
+});
+db.produtos.insertOne({
+  idprod: 1032,
+  produto: "Aspirador de Pó Electrolux",
+  quantidade: 30,
+  preco: 400.00
+});
+db.produtos.insertOne({
+  idprod: 1033,
+  produto: "Smartphone Xiaomi Redmi Note",
+  quantidade: 50,
+  preco: 1800.00
+});
+db.produtos.insertOne({
+  idprod: 1034,
+  produto: "Notebook Acer Aspire",
+  quantidade: 40,
+  preco: 3200.00
+});
+db.produtos.insertOne({
+  idprod: 1035,
+  produto: "Switch Nintendo",
+  quantidade: 15,
+  preco: 2500.00
+});
+db.produtos.insertOne({
+  idprod: 1036,
+  produto: "Kindle Amazon",
+  quantidade: 30,
+  preco: 450.00
+});
+db.produtos.insertOne({
+  idprod: 1037,
+  produto: "Robo Aspirador Roomba",
+  quantidade: 20,
+  preco: 1500.00
+});
+db.produtos.insertOne({
+  idprod: 1038,
+  produto: "Placa Mãe Asus",
+  quantidade: 25,
+  preco: 800.00
+});
+db.produtos.insertOne({
+  idprod: 1039,
+  produto: "Memória RAM Corsair 16GB",
+  quantidade: 70,
+  preco: 600.00
+});
+db.produtos.insertOne({
+  idprod: 1040,
+  produto: "Processador AMD Ryzen 9",
+  quantidade: 15,
+  preco: 3000.00
+});
+db.produtos.insertOne({
+  idprod: 1041,
+  produto: "Notebook HP Pavilion",
+  quantidade: 20,
+  preco: 3800.00
+});
+db.produtos.insertOne({
+  idprod: 1042,
+  produto: "Headset Razer Kraken",
+  quantidade: 45,
+  preco: 350.00
+});
+db.produtos.insertOne({
+  idprod: 1043,
+  produto: "Smart TV LG OLED",
+  quantidade: 10,
+  preco: 8000.00
+});
+db.produtos.insertOne({
+  idprod: 1044,
+  produto: "Home Theater Sony",
+  quantidade: 15,
+  preco: 2400.00
+});
+db.produtos.insertOne({
+  idprod: 1045,
+  produto: "Câmera de Segurança Intelbras",
+  quantidade: 35,
+  preco: 400.00
+});
+db.produtos.insertOne({
+  idprod: 1046,
+  produto: "Mesa Digitalizadora Wacom",
+  quantidade: 20,
+  preco: 1500.00
+});
+db.produtos.insertOne({
+  idprod: 1047,
+  produto: "Impressora 3D Creality",
+  quantidade: 12,
+  preco: 2500.00
+});
+db.produtos.insertOne({
+  idprod: 1048,
+  produto: "Leitor de E-books Kobo",
+  quantidade: 25,
+  preco: 600.00
+});
+db.produtos.insertOne({
+  idprod: 1049,
+  produto: "Notebook ASUS ZenBook",
+  quantidade: 30,
+  preco: 5000.00
+});
+db.produtos.insertOne({
+  idprod: 1050,
+  produto: "HD Interno WD Blue 1TB",
+  quantidade: 40,
+  preco: 350.00
+});
+
+
+///////////////// INSERIR CLIENTES
+{
+db.clientes.insertOne({
+  dados: {
+    idcliente: 9,
+    cpf: "123456789",
+    nome: "Maria Dias",
+    email: "mariadias@gmail.com",
+    endereco: {
+      rua: "Av das Nações",
+      numero: 345,
+      complemento: "Apto 101",
+      cidade: "São Paulo",
+      uf: "SP",
+      cep: "011111-110"
+    }
+  },
+  compras: [
+    {
+      idcompra: 1009,
+      idprod: 1000,
+      data: "2024-10-19",
+      quantidade: 1,
+      valorpago: 4500.00
+    }
+  ]
+});
+db.clientes.insertOne({
+  dados: {
+    idcliente: 10,
+    cpf: "234567890",
+    nome: "João Silva",
+    email: "joaosilva@gmail.com",
+    endereco: {
+      rua: "Rua das Flores",
+      numero: 123,
+      complemento: "Casa",
+      cidade: "Rio de Janeiro",
+      uf: "RJ",
+      cep: "22222-222"
+    }
+  },
+  compras: [
+    {
+      idcompra: 1010,
+      idprod: 1001,
+      data: "2024-11-10",
+      quantidade: 2,
+      valorpago: 5000.00
+    }
+  ]
+});
+db.clientes.insertOne({
+  dados: {
+    idcliente: 11,
+    cpf: "345678901",
+    nome: "Ana Paula",
+    email: "anapaula@gmail.com",
+    endereco: {
+      rua: "Av Paulista",
+      numero: 987,
+      complemento: "Apto 23",
+      cidade: "São Paulo",
+      uf: "SP",
+      cep: "33333-333"
+    }
+  },
+  compras: [
+    {
+      idcompra: 1011,
+      idprod: 1002,
+      data: "2024-12-01",
+      quantidade: 1,
+      valorpago: 3500.00
+    }
+  ]
+});
+db.clientes.insertOne({
+  dados: {
+    idcliente: 12,
+    cpf: "456789012",
+    nome: "Carlos Eduardo",
+    email: "carloseduardo@gmail.com",
+    endereco: {
+      rua: "Rua dos Andradas",
+      numero: 456,
+      complemento: "Apto 45",
+      cidade: "Porto Alegre",
+      uf: "RS",
+      cep: "44444-444"
+    }
+  },
+  compras: [
+    {
+      idcompra: 1012,
+      idprod: 1003,
+      data: "2024-09-22",
+      quantidade: 3,
+      valorpago: 3600.00
+    }
+  ]
+});
+db.clientes.insertOne({
+  dados: {
+    idcliente: 13,
+    cpf: "567890123",
+    nome: "Mariana Costa",
+    email: "marianacosta@gmail.com",
+    endereco: {
+      rua: "Av Getúlio Vargas",
+      numero: 321,
+      complemento: "Apto 56",
+      cidade: "Belo Horizonte",
+      uf: "MG",
+      cep: "55555-555"
+    }
+  },
+  compras: [
+    {
+      idcompra: 1013,
+      idprod: 1004,
+      data: "2024-08-15",
+      quantidade: 1,
+      valorpago: 800.00
+    }
+  ]
+});
+db.clientes.insertOne({
+  dados: {
+    idcliente: 14,
+    cpf: "678901234",
+    nome: "Fernando Almeida",
+    email: "fernandoalmeida@gmail.com",
+    endereco: {
+      rua: "Rua dos Passos",
+      numero: 789,
+      complemento: "Casa",
+      cidade: "Curitiba",
+      uf: "PR",
+      cep: "66666-666"
+    }
+  },
+  compras: [
+    {
+      idcompra: 1014,
+      idprod: 1005,
+      data: "2024-07-30",
+      quantidade: 2,
+      valorpago: 1200.00
+    }
+  ]
+});
+db.clientes.insertOne({
+  dados: {
+    idcliente: 15,
+    cpf: "789012345",
+    nome: "Patrícia Lima",
+    email: "patricialima@gmail.com",
+    endereco: {
+      rua: "Av Independência",
+      numero: 654,
+      complemento: "Apto 89",
+      cidade: "Fortaleza",
+      uf: "CE",
+      cep: "77777-777"
+    }
+  },
+  compras: [
+    {
+      idcompra: 1015,
+      idprod: 1006,
+      data: "2024-06-18",
+      quantidade: 1,
+      valorpago: 450.00
+    }
+  ]
+});
+db.clientes.insertOne({
+  dados: {
+    idcliente: 16,
+    cpf: "890123456",
+    nome: "Rodrigo Souza",
+    email: "rodrigosouza@gmail.com",
+    endereco: {
+      rua: "Rua da Saudade",
+      numero: 963,
+      complemento: "Casa",
+      cidade: "Manaus",
+      uf: "AM",
+      cep: "88888-888"
+    }
+  },
+  compras: [
+    {
+      idcompra: 1016,
+      idprod: 1007,
+      data: "2024-05-20",
+      quantidade: 1,
+      valorpago: 1200.00
+    }
+  ]
+});
+db.clientes.insertOne({
+  dados: {
+    idcliente: 17,
+    cpf: "901234567",
+    nome: "Lucas Fernandes",
+    email: "lucasfernandes@gmail.com",
+    endereco: {
+      rua: "Av Rio Branco",
+      numero: 753,
+      complemento: "Apto 101",
+      cidade: "Rio de Janeiro",
+      uf: "RJ",
+      cep: "99999-999"
+    }
+  },
+  compras: [
+    {
+      idcompra: 1017,
+      idprod: 1008,
+      data: "2024-04-15",
+      quantidade: 1,
+      valorpago: 3800.00
+    }
+  ]
+});
+db.clientes.insertOne({
+  dados: {
+    idcliente: 18,
+    cpf: "012345678",
+    nome: "Beatriz Oliveira",
+    email: "beatrizoliveira@gmail.com",
+    endereco: {
+      rua: "Rua XV de Novembro",
+      numero: 159,
+      complemento: "Casa",
+      cidade: "Curitiba",
+      uf: "PR",
+      cep: "10101-010"
+    }
+  },
+  compras: [
+    {
+      idcompra: 1018,
+      idprod: 1009,
+      data: "2024-03-22",
+      quantidade: 1,
+      valorpago: 4500.00
+    }
+  ]
+});
+db.clientes.insertOne({
+  dados: {
+    idcliente: 19,
+    cpf: "123456780",
+    nome: "Gabriel Ribeiro",
+    email: "gabrielribeiro@gmail.com",
+    endereco: {
+      rua: "Av Ipiranga",
+      numero: 258,
+      complemento: "Apto 202",
+      cidade: "São Paulo",
+      uf: "SP",
+      cep: "11011-101"
+    }
+  },
+  compras: [
+    {
+      idcompra: 1019,
+      idprod: 1010,
+      data: "2024-02-14",
+      quantidade: 1,
+      valorpago: 350.00
+    }
+  ]
+});
+db.clientes.insertOne({
+  dados: {
+    idcliente: 20,
+    cpf: "234567891",
+    nome: "Larissa Martins",
+    email: "larissamartins@gmail.com",
+    endereco: {
+      rua: "Rua das Palmeiras",
+      numero: 357,
+      complemento: "Casa",
+      cidade: "Florianópolis",
+      uf: "SC",
+      cep: "11111-111"
+    }
+  },
+  compras: [
+    {
+      idcompra: 1020,
+      idprod: 1011,
+      data: "2024-01-20",
+      quantidade: 1,
+      valorpago: 3000.00
+    }
+  ]
+});
+db.clientes.insertOne({
+  dados: {
+    idcliente: 21,
+    cpf: "345678912",
+    nome: "Eduardo Mendes",
+    email: "eduardomendes@gmail.com",
+    endereco: {
+      rua: "Av Beira Mar",
+      numero: 951,
+      complemento: "Apto 33",
+      cidade: "Salvador",
+      uf: "BA",
+      cep: "22222-222"
+    }
+  },
+  compras: [
+    {
+      idcompra: 1021,
+      idprod: 1012,
+      data: "2024-11-30",
+      quantidade: 2,
+      valorpago: 1100.00
+    }
+  ]
+});
+db.clientes.insertOne({
+  dados: {
+    idcliente: 22,
+    cpf: "456789123",
+    nome: "Juliana Alves",
+    email: "julianaalves@gmail.com",
+    endereco: {
+      rua: "Rua das Laranjeiras",
+      numero: 753,
+      complemento: "Apto 55",
+      cidade: "Brasília",
+      uf: "DF",
+      cep: "33333-333"
+    }
+  },
+  compras: [
+    {
+      idcompra: 1022,
+      idprod: 1013,
+      data: "2024-10-21",
+      quantidade: 1,
+      valorpago: 5000.00
+    }
+  ]
+});
+}
+/////// CONSULTAR TODOS OS PRODUTOS
+db.produtos.find();
+
+/////// CONSULTAR TODOS OS PRODUTOS
+db.clientes.find();
+
+
+///////// CONSULTAR COMPRAS DE UM CLIENTE
+db.clientes.find({ "dados.nome": "Maria Dias" }, { compras: 1 });
+
+///////// ATUALIAZAR ESTOQUE DE PRODUTO
+db.produtos.updateOne(
+  { idprod: 1000 }, // Condição
+  { $set: { quantidade: 45 } } // Atualização
+);
+
+
+//////// ADICINAR NOVA COMPRA A UM CLIENTE
+db.produtos.updateOne(
+  { idprod: 1000 }, // Condição
+  { $set: { quantidade: 45 } } // Atualização
+);
+
+
+////////// REMOVER PRODUTO
+db.produtos.deleteOne({ idprod: 1000 });
+
+
+////////// REMOVER CLIENTE
+db.clientes.deleteOne({ "dados.cpf": "123456789" });
+
+
+////////// CRIAÇÃO DE INDICES
+db.createCollection("produtos", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["idprod", "produto", "quantidade", "preco"],
+      properties: {
+        idprod: { bsonType: "int" },
+        produto: { bsonType: "string" },
+        quantidade: { bsonType: "int" },
+        preco: { bsonType: "double" }
+      }
+    }
+  }
+});
+
+
+////////// INSTALAR pymongo
+pip install pymongO
+
+////////// CODIGO python PARA CONECTAR AO MONGO
+from pymongo import MongoClient
+
+# Conectar ao MongoDB
+client = MongoClient("mongodb://localhost:27017/")  # Substitua pelo URI do seu MongoDB
+db = client["ecommerceDB"]  # Nome do banco de dados
+
+# Criar as coleções
+produtos_collection = db["produtos"]
+clientes_collection = db["clientes"]
+
+# Inserir um produto
+produto = {
+    "idprod": 1000,
+    "produto": "Notebook Dell Inspiron",
+    "quantidade": 50,
+    "preco": 4500.00
+}
+
+produtos_collection.insert_one(produto)
+print("Produto inserido com sucesso!")
+
+# Inserir um cliente com uma compra
+cliente = {
+    "dados": {
+        "idcliente": 9,
+        "cpf": "123456789",
+        "nome": "Maria Dias",
+        "email": "mariadias@gmail.com",
+        "endereco": {
+            "rua": "Av das Nações",
+            "numero": 345,
+            "complemento": "Apto 101",
+            "cidade": "São Paulo",
+            "uf": "SP",
+            "cep": "011111-110"
+        }
+    },
+    "compras": [
+        {
+            "idcompra": 1009,
+            "idprod": 1000,
+            "data": "2024-10-19",
+            "quantidade": 1,
+            "valorpago": 4500.00
+        }
+    ]
+}
+
+clientes_collection.insert_one(cliente)
+print("Cliente inserido com sucesso!")
+
+# Consultar todos os produtos
+for produto in produtos_collection.find():
+    print(produto)
+
+# Consultar um cliente específico
+cliente = clientes_collection.find_one({"dados.nome": "Maria Dias"})
+print(cliente)
+
+# Adicionar uma nova compra ao cliente
+clientes_collection.update_one(
+    {"dados.idcliente": 9},  # Filtro
+    {
+        "$push": {  # Adicionar nova compra ao array "compras"
+            "compras": {
+                "idcompra": 1010,
+                "idprod": 1001,
+                "data": "2024-11-01",
+                "quantidade": 2,
+                "valorpago": 5000.00
+            }
+        }
+    }
+)
+print("Nova compra adicionada!")
+
+# Atualizar a quantidade de um produto
+produtos_collection.update_one(
+    {"idprod": 1000},  # Filtro
+    {"$set": {"quantidade": 45}}  # Atualização
+)
+print("Quantidade do produto atualizada!")
+
+# Fechar a conexão
+client.close()
+
+
+//////////////////////// BANCO neo4j
+
+:use relacionamentos //usa o banco de nome relacionamentos
+
+// população cliente
+CREATE (:Cliente {cpf: "123456789", nome: "Maria Dias", telefone: "11987654321", cidade: "São Paulo", uf: "SP"});
+CREATE (:Cliente {cpf: "987654321", nome: "João Silva", telefone: "21987654321", cidade: "Rio de Janeiro", uf: "RJ"});
+CREATE (:Cliente {cpf: "456789123", nome: "Ana Costa", telefone: "31987654321", cidade: "Belo Horizonte", uf: "MG"});
+
+// cria os relacionamentos
+MATCH (a:Cliente {cpf: "123456789"}), (b:Cliente {cpf: "987654321"})
+CREATE (a)-[:AMIGO_DE]->(b);
+
+MATCH (a:Cliente {cpf: "123456789"}), (b:Cliente {cpf: "456789123"})
+CREATE (a)-[:AMIGO_DE]->(b);
+
+MATCH (a:Cliente {cpf: "987654321"}), (b:Cliente {cpf: "456789123"})
+CREATE (a)-[:AMIGO_DE]->(b);
+
+
+// Lista todos os clientes
+MATCH (c:Cliente)
+RETURN c.cpf, c.nome, c.telefone, c.cidade, c.uf;
+
+// Encontra amigos de um cliente especifico
+MATCH (a:Cliente {nome: "Maria Dias"})-[:AMIGO_DE]->(amigo)
+RETURN amigo.nome, amigo.cpf;
+
+// Verifica todas as conexões de amizade
+MATCH (a:Cliente)-[:AMIGO_DE]->(b:Cliente)
+RETURN a.nome AS Cliente1, b.nome AS Cliente2;
+
+
+
+
