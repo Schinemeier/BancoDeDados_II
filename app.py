@@ -1,80 +1,55 @@
+# File: app.py
+
 from flask import Flask, jsonify, request
 from pymongo import MongoClient
 from neo4j import GraphDatabase
 
-# Configuração da API
 app = Flask(__name__)
 
-# Conexão com MongoDB (Base 1: Orientado a Documentos)
-mongo_client = MongoClient('mongodb://localhost:27017/')
+# MongoDB configuration
+MONGO_URI = "mongodb://localhost:27017"
+mongo_client = MongoClient(MONGO_URI)
 mongo_db = mongo_client['recomendacoes']
-produtos_col = mongo_db['produtos']
-clientes_col = mongo_db['clientes']
+produtos_collection = mongo_db['Produtos']
+clientes_collection = mongo_db['Cliente']
 
-# Conexão com Neo4j (Base 2: Orientado a Grafos)
-neo4j_driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "neo4j"))
+# Neo4J configuration
+NEO4J_URI = "bolt://54.205.150.161"
+NEO4J_USER = "neo4j"
+NEO4J_PASSWORD = "theories-readiness-modifications"
+neo4j_driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
 
-# Função para recuperar dados de amigos de um cliente no Neo4j
-def get_amigos(cpf):
+
+# Function to get friends from Neo4J
+def get_friends(cpf):
+    query = """
+    MATCH (client:Person {cpf: $cpf})-[:FRIEND]->(friend)
+    RETURN friend.cpf AS cpf, friend.nome AS nome, friend.telefone AS telefone,
+           friend.cidade AS cidade, friend.uf AS uf
+    """
     with neo4j_driver.session() as session:
-        query = """
-        MATCH (c:Cliente {cpf: $cpf})-[:AMIGO_DE]-(amigo:Cliente)
-        RETURN amigo.cpf AS cpf, amigo.nome AS nome, amigo.telefone AS telefone,
-               amigo.cidade AS cidade, amigo.uf AS uf
-        """
         result = session.run(query, cpf=cpf)
-        amigos = [record.data() for record in result]
-    return amigos
+        return [record.data() for record in result]
 
-# Rota para buscar dados do cliente e suas compras
-@app.route('/cliente/<int:idcliente>', methods=['GET'])
-def get_cliente(idcliente):
-    cliente = clientes_col.find_one({"dados.idcliente": idcliente})
-    if not cliente:
-        return jsonify({"error": "Cliente não encontrado"}), 404
 
-    # Dados do cliente
-    cliente_data = cliente['dados']
-    
-    # Recuperar amigos (Neo4j)
-    amigos = get_amigos(cliente_data['cpf'])
+# Route to fetch client details and their purchases
+@app.route('/cliente/<cpf>', methods=['GET'])
+def get_cliente_data(cpf):
+    # Get client and purchases from MongoDB
+    client_data = clientes_collection.find_one({"dados.cpf": int(cpf)}, {"_id": 0})
+    if not client_data:
+        return jsonify({"error": "Client not found"}), 404
 
-    # Montar resposta
+    # Get friends from Neo4J
+    friends = get_friends(cpf)
+
+    # Combine data
     response = {
-        "cliente": {
-            "idcliente": cliente_data['idcliente'],
-            "cpf": cliente_data['cpf'],
-            "nome": cliente_data['nome'],
-            "email": cliente_data['email'],
-            "endereco": cliente_data['endereco'],
-            "compras": cliente_data.get('compras', [])
-        },
-        "amigos": amigos
+        "client": client_data['dados'],
+        "friends": friends
     }
     return jsonify(response)
 
-# Rota para buscar todos os clientes (incluindo seus amigos e compras)
-@app.route('/clientes', methods=['GET'])
-def get_todos_clientes():
-    clientes = list(clientes_col.find())
-    response = []
 
-    for cliente in clientes:
-        cliente_data = cliente['dados']
-        amigos = get_amigos(cliente_data['cpf'])
-        response.append({
-            "cliente": {
-                "idcliente": cliente_data['idcliente'],
-                "cpf": cliente_data['cpf'],
-                "nome": cliente_data['nome'],
-                "email": cliente_data['email'],
-                "endereco": cliente_data['endereco'],
-                "compras": cliente_data.get('compras', [])
-            },
-            "amigos": amigos
-        })
-    return jsonify(response)
-
-# Inicializar o servidor Flask
 if __name__ == '__main__':
     app.run(debug=True)
